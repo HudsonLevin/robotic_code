@@ -15,7 +15,7 @@ while True:
     imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     results = hands.process(imgRGB)
     #print(results.multi_hand_landmarks)
-    
+
     if results.multi_hand_landmarks:
         for handLms in results.multi_hand_landmarks:
             for id, lm in enumerate(handLms.landmark):
@@ -50,30 +50,36 @@ while True:
                     cx4 = cx
                 if id == 3:
                     id3 = int(id)
-                    cx3 = cx       
+                    cx3 = cx  
+            Nfing = 5
+            cv2.putText(img,"FiveFin", (10, 70), cv2.FONT_HERSHEY_PLAIN, 3,
+                (255, 0, 255), 3)
             if cx4 > cx3:
                 Nfing = 4
-                print("นิ้วชี้")
-            else:
-                Nfing = 5
-                print("ครบทุกนิ้ว")
+                cv2.putText(img,"FourFin", (10, 140), cv2.FONT_HERSHEY_PLAIN, 3,
+                (255, 0, 255), 3)
             if cx8 > cx7 and cx4 > cx3:
                 Nfing = 3
-                print("   นิ้วกลาง")
+                cv2.putText(img,"ThreeFin", (10, 210), cv2.FONT_HERSHEY_PLAIN, 3,
+                (255, 0, 255), 3)
             if cx12 > cx11 and cx8 > cx7 and cx4 > cx3 :
                 Nfing = 2
-                print("         นิ้วนาง")
+                cv2.putText(img,"TwoFin", (10, 280), cv2.FONT_HERSHEY_PLAIN, 3,
+                (255, 0, 255), 3)
             if cx16 > cx15 and cx12 > cx11 and cx8 > cx7 and cx4 > cx3:
-                Nfing = 1
-                print("              นิ้วก้อย")         
+                Nfing = 1 
+                cv2.putText(img,"OneFin", (10, 350), cv2.FONT_HERSHEY_PLAIN, 3,
+                (255, 0, 255), 3)       
             if cx20 > cx19 and cx16 > cx15 and cx12 > cx11 and cx8 > cx7 and cx4 > cx3:
                 Nfing = 0
-                print("ไม่มีซักนิ้ว")    
+                cv2.putText(img,"NoneFin", (10, 420), cv2.FONT_HERSHEY_PLAIN, 3,
+                (255, 0, 255), 3)  
+
+             
+                                       
 
             mpDraw.draw_landmarks(img, handLms, mpHands.HAND_CONNECTIONS)
-    
-    cv2.putText(img, str(int(Nfing)), (10, 70), cv2.FONT_HERSHEY_PLAIN, 3,
-                (255, 0, 255), 3)
+
     cv2.imshow("Image", img)
     cv2.waitKey(1)
 #Closeing all open windows
