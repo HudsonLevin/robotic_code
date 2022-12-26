@@ -52,27 +52,27 @@ while True:
                     id3 = int(id)
                     cx3 = cx  
             Nfing = 5
-            cv2.putText(img,"FiveFin", (10, 70), cv2.FONT_HERSHEY_PLAIN, 3,
+            cv2.putText(img,"FiveFinger", (10, 70), cv2.FONT_HERSHEY_PLAIN, 3,
                 (255, 0, 255), 3)
             if cx4 > cx3:
                 Nfing = 4
-                cv2.putText(img,"FourFin", (10, 140), cv2.FONT_HERSHEY_PLAIN, 3,
+                cv2.putText(img,"FourFinger", (10, 140), cv2.FONT_HERSHEY_PLAIN, 3,
                 (255, 0, 255), 3)
             if cx8 > cx7 and cx4 > cx3:
                 Nfing = 3
-                cv2.putText(img,"ThreeFin", (10, 210), cv2.FONT_HERSHEY_PLAIN, 3,
+                cv2.putText(img,"ThreeFinger", (10, 210), cv2.FONT_HERSHEY_PLAIN, 3,
                 (255, 0, 255), 3)
             if cx12 > cx11 and cx8 > cx7 and cx4 > cx3 :
                 Nfing = 2
-                cv2.putText(img,"TwoFin", (10, 280), cv2.FONT_HERSHEY_PLAIN, 3,
+                cv2.putText(img,"TwoFinger", (10, 280), cv2.FONT_HERSHEY_PLAIN, 3,
                 (255, 0, 255), 3)
             if cx16 > cx15 and cx12 > cx11 and cx8 > cx7 and cx4 > cx3:
                 Nfing = 1 
-                cv2.putText(img,"OneFin", (10, 350), cv2.FONT_HERSHEY_PLAIN, 3,
+                cv2.putText(img,"OneFinger", (10, 350), cv2.FONT_HERSHEY_PLAIN, 3,
                 (255, 0, 255), 3)       
             if cx20 > cx19 and cx16 > cx15 and cx12 > cx11 and cx8 > cx7 and cx4 > cx3:
                 Nfing = 0
-                cv2.putText(img,"NoneFin", (10, 420), cv2.FONT_HERSHEY_PLAIN, 3,
+                cv2.putText(img,"NoneFinger", (10, 420), cv2.FONT_HERSHEY_PLAIN, 3,
                 (255, 0, 255), 3)  
 
              
